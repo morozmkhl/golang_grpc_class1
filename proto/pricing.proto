@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package pricing.v1;
+
+option go_package = "golang_grpc_class/pkg/pricingpb;pricingpb";
+
+// PricingService exposes pure pricing calculations (discount rules).
+service PricingService {
+  rpc CalculatePrice(CalculatePriceRequest) returns (CalculatePriceResponse);
+}
+
+message CalculatePriceRequest {
+  double amount = 1;
+}
+
+message CalculatePriceResponse {
+  double final_price = 1;
+}
